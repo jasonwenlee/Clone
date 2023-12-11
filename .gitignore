@@ -2,8 +2,9 @@
 .DS_Store
 */.DS_Store
 *.xcuserstate
-project.xcworkspace/
+*.xcworkspace/
 xcuserdata/
+
 
 # Swift Package Manager
 /.build/
@@ -49,3 +50,11 @@ xcuserdata/
 # macOS
 .DS_Store
 
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
