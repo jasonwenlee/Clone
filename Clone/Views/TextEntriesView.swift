@@ -13,8 +13,8 @@ struct TextEntriesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(viewModel.textEntries) { entry in
-                    if let text = entry.text {
+                List($viewModel.textEntries) { entry in
+                    if let text = entry.entry_title.wrappedValue {
                         Text(text)
                     }
                 }

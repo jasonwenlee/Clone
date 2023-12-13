@@ -16,9 +16,10 @@
 		966A00832B269A88007B5913 /* CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00822B269A88007B5913 /* CloneTests.swift */; };
 		966A008D2B269A88007B5913 /* CloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A008C2B269A88007B5913 /* CloneUITests.swift */; };
 		966A008F2B269A88007B5913 /* CloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A008E2B269A88007B5913 /* CloneUITestsLaunchTests.swift */; };
-		966A00A22B269DEC007B5913 /* TextEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00A12B269DEC007B5913 /* TextEntryModel.swift */; };
 		966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */; };
 		966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */; };
+		968777D72B2814400000FA64 /* TextEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */; };
+		968777D82B2814400000FA64 /* TextEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */; };
 		96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */; };
 		96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EF12B26E01A00148828 /* EntriesController.swift */; };
 		96DA9EF42B26E6F500148828 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EF32B26E6F500148828 /* MainView.swift */; };
@@ -55,9 +56,10 @@
 		966A00882B269A88007B5913 /* CloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		966A008C2B269A88007B5913 /* CloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneUITests.swift; sourceTree = "<group>"; };
 		966A008E2B269A88007B5913 /* CloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		966A00A12B269DEC007B5913 /* TextEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryModel.swift; sourceTree = "<group>"; };
 		966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesViewModel.swift; sourceTree = "<group>"; };
 		966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesView.swift; sourceTree = "<group>"; };
+		968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormViewModel.swift; sourceTree = "<group>"; };
 		96DA9EF12B26E01A00148828 /* EntriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesController.swift; sourceTree = "<group>"; };
 		96DA9EF32B26E6F500148828 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -111,12 +113,10 @@
 		966A006A2B269A87007B5913 /* Clone */ = {
 			isa = PBXGroup;
 			children = (
-				966A00A02B269CF9007B5913 /* Utilities */,
-				966A009F2B269CF0007B5913 /* Services */,
 				966A009E2B269CE1007B5913 /* Controllers */,
 				966A009D2B269CCC007B5913 /* ViewModels */,
 				966A009C2B269CC5007B5913 /* Views */,
-				966A009B2B269CBA007B5913 /* Models */,
+				966A009B2B269CBA007B5913 /* CoreData */,
 				966A006B2B269A87007B5913 /* CloneApp.swift */,
 				966A006D2B269A87007B5913 /* Persistence.swift */,
 				966A00742B269A88007B5913 /* Assets.xcassets */,
@@ -152,12 +152,13 @@
 			path = CloneUITests;
 			sourceTree = "<group>";
 		};
-		966A009B2B269CBA007B5913 /* Models */ = {
+		966A009B2B269CBA007B5913 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				966A00A12B269DEC007B5913 /* TextEntryModel.swift */,
+				968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */,
+				968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */,
 			);
-			path = Models;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		966A009C2B269CC5007B5913 /* Views */ = {
@@ -185,20 +186,6 @@
 				96DA9EF12B26E01A00148828 /* EntriesController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		966A009F2B269CF0007B5913 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		966A00A02B269CF9007B5913 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,11 +323,12 @@
 				96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */,
 				96DA9EF42B26E6F500148828 /* MainView.swift in Sources */,
 				966A006E2B269A87007B5913 /* Persistence.swift in Sources */,
+				968777D72B2814400000FA64 /* TextEntry+CoreDataClass.swift in Sources */,
+				968777D82B2814400000FA64 /* TextEntry+CoreDataProperties.swift in Sources */,
 				966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */,
 				96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */,
 				966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */,
 				966A00712B269A87007B5913 /* Clone.xcdatamodeld in Sources */,
-				966A00A22B269DEC007B5913 /* TextEntryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
