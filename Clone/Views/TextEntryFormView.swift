@@ -8,45 +8,67 @@
 import SwiftUI
 
 struct TextEntryFormView: View {
-    var viewModel: TextEntryFormViewModel
+    @Environment(\.dismiss) private var dismiss
+
+    private var viewModel: TextEntryFormViewModel = EntriesController.shared.textEntryFormViewModel
+
+    var selectedEntry: TextEntry?
 
     @State private var title = ""
     @State private var description = ""
+
+    init(selectedEntry: TextEntry? = nil) {
+        self.selectedEntry = selectedEntry
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("New entry")
-                        .font(.headline)
-                        .padding()
+                    if selectedEntry == nil {
+                        Text("New entry").font(.headline)
+                    } else {
+                        Button("Cancel", action: {
+                            dismiss()
+                        })
+                    }
 
                     Spacer()
 
-                    Button("Add", action: {
-                        viewModel.addTextEntry(title, description)
-                        title = ""
-                        description = ""
-                    }).padding()
+                    if selectedEntry == nil {
+                        Button("Add", action: {
+                            viewModel.addTextEntry(title, description)
+                            title = ""
+                            description = ""
+                        })
+                    } else {
+                        Button("Update", action: {
+                            dismiss()
+                        })
+                    }
                 }
 
                 TextField("Title", text: $title)
                     .font(.title)
-                    .padding()
+                    .padding(.vertical, 10)
 
                 TextField("Description", text: $description)
                     .font(.body)
-                    .padding()
             }
             .frame(
                 maxWidth: .infinity,
                 maxHeight: .infinity,
                 alignment: .topLeading
             )
+            .padding()
+            .onAppear {
+                if let t = selectedEntry?.entry_title {
+                    title = t
+                }
+                if let d = selectedEntry?.entry_description {
+                    description = d
+                }
+            }
         }
     }
-}
-
-#Preview {
-    TextEntryFormView(viewModel: TextEntryFormViewModel())
 }

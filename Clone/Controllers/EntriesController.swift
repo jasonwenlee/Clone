@@ -8,10 +8,11 @@
 import Combine
 import Foundation
 
-class EntriesController: ObservableObject {
+class EntriesController {
+    static let shared = EntriesController()
+
     let textEntryFormViewModel = TextEntryFormViewModel()
     let textEntriesViewModel = TextEntriesViewModel()
-    
 
     init() {
         setupBindings()
@@ -19,13 +20,17 @@ class EntriesController: ObservableObject {
 
     private func setupBindings() {
         // Observe changes in TextEntryFormViewModel
-        self.textEntryFormViewModel.$textEntry
+        textEntryFormViewModel.$textEntry
             .compactMap { $0 }
             .sink { [weak self] entry in
                 // React to changes in TextEntryFormViewModel
                 self?.textEntriesViewModel.handleTextEntryChange(entry)
             }
             .store(in: &cancellables)
+    }
+
+    func selectEntry(entry: TextEntry) {
+        textEntryFormViewModel.textEntry = entry
     }
 
     private var cancellables: Set<AnyCancellable> = []

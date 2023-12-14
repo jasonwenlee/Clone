@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct TextEntriesView: View {
-    @ObservedObject var viewModel: TextEntriesViewModel
+    @ObservedObject var viewModel: TextEntriesViewModel = EntriesController.shared.textEntriesViewModel
+    @State private var selectedEntry: TextEntry?
 
     var body: some View {
         NavigationView {
             VStack {
                 List($viewModel.textEntries) { entry in
-                    if let text = entry.entry_title.wrappedValue {
-                        Text(text)
+                    if let title = entry.entry_title.wrappedValue {
+                        Text(title).onTapGesture {
+                            selectedEntry = entry.wrappedValue
+                        }
                     }
                 }
                 .navigationTitle("Text Entries")
+                .sheet(item: $selectedEntry) { e in
+                    TextEntryFormView(selectedEntry: e)
+                }
             }
         }
     }
-}
-
-#Preview {
-    TextEntriesView(
-        viewModel: TextEntriesViewModel()
-    )
 }

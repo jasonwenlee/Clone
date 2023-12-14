@@ -6,10 +6,16 @@
 //
 
 import Combine
+import CoreData
 import Foundation
 
 class TextEntriesViewModel: ObservableObject {
     @Published var textEntries: [TextEntry] = []
+
+    init() {
+        let entries = Operations.fetchEntries()
+        textEntries.append(contentsOf: entries)
+    }
 
     // Handle changes in TextEntryFormViewModel
     func handleTextEntryChange(_ newEntry: TextEntry) {

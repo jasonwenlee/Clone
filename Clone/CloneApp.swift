@@ -9,12 +9,18 @@ import SwiftUI
 
 @main
 struct CloneApp: App {
-    let persistenceController = PersistenceController.shared
-    let entriesController = EntriesController()
-
     var body: some Scene {
         WindowGroup {
-            MainView().environmentObject(entriesController)
+            TabView {
+                TextEntriesView()
+                    .tabItem {
+                        Label("Entries", systemImage: "list.bullet")
+                    }
+                TextEntryFormView()
+                    .tabItem {
+                        Label("Add Entry", systemImage: "square.and.pencil")
+                    }
+            }
         }
     }
 }

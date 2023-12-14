@@ -20,9 +20,10 @@
 		966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */; };
 		968777D72B2814400000FA64 /* TextEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */; };
 		968777D82B2814400000FA64 /* TextEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */; };
+		968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777DF2B2969F50000FA64 /* EntryProtocol.swift */; };
+		968777EB2B2975A80000FA64 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777EA2B2975A80000FA64 /* Operations.swift */; };
 		96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */; };
 		96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EF12B26E01A00148828 /* EntriesController.swift */; };
-		96DA9EF42B26E6F500148828 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EF32B26E6F500148828 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +61,10 @@
 		966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesView.swift; sourceTree = "<group>"; };
 		968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		968777DF2B2969F50000FA64 /* EntryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryProtocol.swift; sourceTree = "<group>"; };
+		968777EA2B2975A80000FA64 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormViewModel.swift; sourceTree = "<group>"; };
 		96DA9EF12B26E01A00148828 /* EntriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesController.swift; sourceTree = "<group>"; };
-		96DA9EF32B26E6F500148828 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +115,14 @@
 		966A006A2B269A87007B5913 /* Clone */ = {
 			isa = PBXGroup;
 			children = (
+				968777DD2B2969C00000FA64 /* Protocols */,
 				966A009E2B269CE1007B5913 /* Controllers */,
 				966A009D2B269CCC007B5913 /* ViewModels */,
 				966A009C2B269CC5007B5913 /* Views */,
 				966A009B2B269CBA007B5913 /* CoreData */,
 				966A006B2B269A87007B5913 /* CloneApp.swift */,
 				966A006D2B269A87007B5913 /* Persistence.swift */,
+				968777EA2B2975A80000FA64 /* Operations.swift */,
 				966A00742B269A88007B5913 /* Assets.xcassets */,
 				966A00762B269A88007B5913 /* Clone.entitlements */,
 				966A006F2B269A87007B5913 /* Clone.xcdatamodeld */,
@@ -166,7 +170,6 @@
 			children = (
 				966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */,
 				962561C22B26B2DC00446F16 /* TextEntryFormView.swift */,
-				96DA9EF32B26E6F500148828 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,14 @@
 				96DA9EF12B26E01A00148828 /* EntriesController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		968777DD2B2969C00000FA64 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				968777DF2B2969F50000FA64 /* EntryProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,10 +329,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */,
 				966A006C2B269A87007B5913 /* CloneApp.swift in Sources */,
 				962561C32B26B2DC00446F16 /* TextEntryFormView.swift in Sources */,
+				968777EB2B2975A80000FA64 /* Operations.swift in Sources */,
 				96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */,
-				96DA9EF42B26E6F500148828 /* MainView.swift in Sources */,
 				966A006E2B269A87007B5913 /* Persistence.swift in Sources */,
 				968777D72B2814400000FA64 /* TextEntry+CoreDataClass.swift in Sources */,
 				968777D82B2814400000FA64 /* TextEntry+CoreDataProperties.swift in Sources */,
