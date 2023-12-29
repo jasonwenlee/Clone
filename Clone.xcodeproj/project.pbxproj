@@ -18,6 +18,8 @@
 		966A008F2B269A88007B5913 /* CloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A008E2B269A88007B5913 /* CloneUITestsLaunchTests.swift */; };
 		966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */; };
 		966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */; };
+		967ADBFB2B3E6B71006AB548 /* CustomTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFA2B3E6B71006AB548 /* CustomTitleField.swift */; };
+		967ADBFD2B3E70A8006AB548 /* CustomDescriptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFC2B3E70A8006AB548 /* CustomDescriptionField.swift */; };
 		968777D72B2814400000FA64 /* TextEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */; };
 		968777D82B2814400000FA64 /* TextEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */; };
 		968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777DF2B2969F50000FA64 /* EntryProtocol.swift */; };
@@ -59,6 +61,8 @@
 		966A008E2B269A88007B5913 /* CloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesViewModel.swift; sourceTree = "<group>"; };
 		966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesView.swift; sourceTree = "<group>"; };
+		967ADBFA2B3E6B71006AB548 /* CustomTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleField.swift; sourceTree = "<group>"; };
+		967ADBFC2B3E70A8006AB548 /* CustomDescriptionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDescriptionField.swift; sourceTree = "<group>"; };
 		968777D52B2814400000FA64 /* TextEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		968777D62B2814400000FA64 /* TextEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		968777DF2B2969F50000FA64 /* EntryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryProtocol.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		966A006A2B269A87007B5913 /* Clone */ = {
 			isa = PBXGroup;
 			children = (
+				967ADBF92B3E6B2E006AB548 /* Components */,
 				968777DD2B2969C00000FA64 /* Protocols */,
 				966A009E2B269CE1007B5913 /* Controllers */,
 				966A009D2B269CCC007B5913 /* ViewModels */,
@@ -189,6 +194,15 @@
 				96DA9EF12B26E01A00148828 /* EntriesController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		967ADBF92B3E6B2E006AB548 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				967ADBFA2B3E6B71006AB548 /* CustomTitleField.swift */,
+				967ADBFC2B3E70A8006AB548 /* CustomDescriptionField.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		968777DD2B2969C00000FA64 /* Protocols */ = {
@@ -329,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967ADBFD2B3E70A8006AB548 /* CustomDescriptionField.swift in Sources */,
+				967ADBFB2B3E6B71006AB548 /* CustomTitleField.swift in Sources */,
 				968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */,
 				966A006C2B269A87007B5913 /* CloneApp.swift in Sources */,
 				962561C32B26B2DC00446F16 /* TextEntryFormView.swift in Sources */,

@@ -19,7 +19,12 @@ class TextEntriesViewModel: ObservableObject {
 
     // Handle changes in TextEntryFormViewModel
     func handleTextEntryChange(_ newEntry: TextEntry) {
-        // Do something with the updated entry, e.g., add it to textEntries
-        textEntries.append(newEntry)
+        if let index = textEntries.firstIndex(of: newEntry) {
+            // Replace the entry.
+            textEntries[index] = newEntry
+        } else {
+            // Add the new entry.
+            textEntries.append(newEntry)
+        }
     }
 }

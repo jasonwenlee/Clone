@@ -12,12 +12,20 @@ import UIKit
 class TextEntryFormViewModel: ObservableObject {
     @Published var textEntry: TextEntry?
 
-    func addTextEntry(_ title: String?, _ description: String?) {
+    func addTextEntry(title: String?, description: String?) {
         textEntry = TextEntry(context: Operations.context)
         textEntry?.id = UUID()
         textEntry?.entry_title = title
         textEntry?.entry_description = description
 
+        Operations.saveEntry()
+    }
+
+    func updateTextEntry(id: UUID, title: String?, description: String?) {
+        textEntry = Operations.fetchEntry(id: id)
+        textEntry?.entry_title = title
+        textEntry?.entry_description = description
+        
         Operations.saveEntry()
     }
 }

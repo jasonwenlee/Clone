@@ -11,16 +11,10 @@ import SwiftUI
 struct CloneApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView {
-                TextEntriesView()
-                    .tabItem {
-                        Label("Entries", systemImage: "list.bullet")
-                    }
-                TextEntryFormView()
-                    .tabItem {
-                        Label("Add Entry", systemImage: "square.and.pencil")
-                    }
-            }
+            TextEntriesView()
+                .tabItem {
+                    Label("Entries", systemImage: "list.bullet")
+                }
         }
     }
 }
