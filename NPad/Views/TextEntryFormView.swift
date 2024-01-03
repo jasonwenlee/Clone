@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct TextEntryFormView: View {
-    @Environment(\.dismiss) private var dismiss
-
-    private var viewModel: TextEntryFormViewModel = EntriesController.shared.textEntryFormViewModel
-
     var selectedEntry: TextEntry?
 
+    private var viewModel: TextEntryFormViewModel = EntriesController.shared.textEntryFormViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var title: String
     @State private var description: String
     @State private var forceFocus: Bool

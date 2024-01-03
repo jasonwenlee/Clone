@@ -16,14 +16,21 @@ struct TextEntriesView: View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
                 // Entries
-                List($viewModel.textEntries) { entry in
-                    if let title = entry.entry_title.wrappedValue {
+                List($viewModel.textEntries.filter { entry in
+                    let s = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+                    return s.isEmpty
+                        || (entry.entry_title.wrappedValue?.localizedCaseInsensitiveContains(s) ?? false)
+                        || (entry.entry_description.wrappedValue?.localizedCaseInsensitiveContains(s) ?? false)
+                }) { entry in
+                    if let title = entry.entry_title.wrappedValue,
+                       let description = entry.entry_description.wrappedValue
+                    {
                         NavigationLink {
                             TextEntryFormView(selectedEntry: entry.wrappedValue)
                         } label: {
                             VStack(alignment: .leading) {
                                 Text(title).font(.headline).foregroundStyle(.black)
-                                Text(entry.entry_description.wrappedValue ?? "")
+                                Text(description)
                                     .font(.subheadline)
                                     .foregroundStyle(.gray)
                             }.frame(height: 50)
