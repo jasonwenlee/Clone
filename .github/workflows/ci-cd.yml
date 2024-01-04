@@ -27,5 +27,5 @@ jobs:
       run: xcodebuild clean -project NPad.xcodeproj -scheme NPad
 
     - name: Build
-      run: xcodebuild build -project NPad.xcodeproj -scheme NPad -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild build -project NPad.xcodeproj -scheme NPad -destination "platform=iOS Simulator,OS=17.0.1,name=iPhone 14" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       

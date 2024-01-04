@@ -7,7 +7,6 @@
 
 import CoreData
 import Foundation
-import UIKit
 
 class TextEntryFormViewModel: ObservableObject {
     @Published var textEntry: TextEntry?
