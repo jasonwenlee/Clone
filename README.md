@@ -1,3 +1,5 @@
+[![Swift](https://github.com/jasonwenlee/NPad/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/jasonwenlee/NPad/actions/workflows/ci-cd.yml)
+
 # NPad
 
 This notepad iOS project is built using a MVVM design pattern and is inspired by Notion.
