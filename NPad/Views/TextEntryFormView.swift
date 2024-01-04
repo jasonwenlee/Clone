@@ -11,6 +11,7 @@ struct TextEntryFormView: View {
     var selectedEntry: TextEntry?
 
     private var viewModel: TextEntryFormViewModel = EntriesController.shared.textEntryFormViewModel
+    @StateObject private var filePickerViewModel = DocumentPickerViewModel()
     @Environment(\.dismiss) private var dismiss
     @State private var title: String
     @State private var description: String
@@ -65,9 +66,9 @@ struct TextEntryFormView: View {
         .toolbar {
             CustomMenu(
                 options: selectedEntry == nil ? [
-                    MenuOption(selectionName: .addAttachment, onSelect: {}),
+                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerViewModel.openDocumentPicker() }),
                 ] : [
-                    MenuOption(selectionName: .addAttachment, onSelect: {}),
+                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerViewModel.openDocumentPicker() }),
                     MenuOption(selectionName: .delete, onSelect: { showDeleteConfirmationAlert = true }),
                 ]
             )

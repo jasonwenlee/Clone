@@ -9,17 +9,17 @@ import Foundation
 import OSLog
 
 enum Log {
-    static let _logger = Logger()
+    private static let logger = Logger()
 
     static func info(message: String) {
-        _logger.info("\(message)")
+        logger.info("\(message)")
     }
 
     static func log(message: String) {
-        _logger.log("\(message)")
+        logger.log("\(message)")
     }
 
     static func error(message: String) {
-        _logger.error("\(message)")
+        logger.error("\(message)")
     }
 }

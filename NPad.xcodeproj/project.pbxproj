@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		96246E122B44E52F00DC34F7 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E102B44E52F00DC34F7 /* Item+CoreDataClass.swift */; };
 		96246E132B44E52F00DC34F7 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */; };
+		96246E172B4524EC00DC34F7 /* DocumentPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E162B4524EC00DC34F7 /* DocumentPickerViewModel.swift */; };
 		962561C32B26B2DC00446F16 /* TextEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962561C22B26B2DC00446F16 /* TextEntryFormView.swift */; };
 		9636A6E52B4398510036B7F5 /* CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6E42B4398510036B7F5 /* CustomMenu.swift */; };
 		9636A6EC2B43FF820036B7F5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6EB2B43FF820036B7F5 /* Logger.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		96246E102B44E52F00DC34F7 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		96246E162B4524EC00DC34F7 /* DocumentPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerViewModel.swift; sourceTree = "<group>"; };
 		962561C22B26B2DC00446F16 /* TextEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormView.swift; sourceTree = "<group>"; };
 		9636A6E42B4398510036B7F5 /* CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenu.swift; sourceTree = "<group>"; };
 		9636A6EB2B43FF820036B7F5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */,
 				96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */,
+				96246E162B4524EC00DC34F7 /* DocumentPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */,
 				966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */,
 				9636A6F12B44DCDB0036B7F5 /* NPad.xcdatamodeld in Sources */,
+				96246E172B4524EC00DC34F7 /* DocumentPickerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
