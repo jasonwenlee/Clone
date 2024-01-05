@@ -15,7 +15,7 @@ class TextEntriesViewModel: ObservableObject {
     init() {
         let entries = Operations.fetchEntries()
         textEntries.append(contentsOf: entries)
-        Log.log(message: "Initialised TextEntriesViewModel.")
+        Log.log(message: "Initialised TextEntriesViewModel")
     }
 
     // Handle changes in TextEntryFormViewModel
@@ -24,16 +24,16 @@ class TextEntriesViewModel: ObservableObject {
             if let index = textEntries.firstIndex(of: entry) {
                 // Replace the entry.
                 textEntries[index] = entry
-                Log.log(message: "Updated existing entry in entries list.")
+                Log.log(message: "Updated existing entry in entries list")
             } else {
                 // Add the new entry.
                 textEntries.append(entry)
-                Log.log(message: "Added new entry in entries list.")
+                Log.log(message: "Added new entry in entries list")
             }
         } else {
             // Fetch latest entries from database.
             textEntries = Operations.fetchEntries()
-            Log.log(message: "Populated entries list with latest entries.")
+            Log.log(message: "Populated entries list with latest entries")
         }
     }
 }

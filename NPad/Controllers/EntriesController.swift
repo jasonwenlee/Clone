@@ -16,7 +16,7 @@ class EntriesController {
 
     init() {
         setupBindings()
-        Log.log(message: "Initialised bindings in EntriesController.")
+        Log.log(message: "Initialised bindings in EntriesController")
     }
 
     private func setupBindings() {

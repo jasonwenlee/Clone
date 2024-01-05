@@ -15,5 +15,6 @@ struct CustomTitleField: View {
         TextField(placeHolder, text: $content, axis: .vertical)
             .font(.title)
             .bold()
+            .autocorrectionDisabled()
     }
 }

@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
 
-class DocumentPickerViewModel: NSObject, ObservableObject, UIDocumentPickerDelegate {
-    @Published var selectedFileURL: URL?
-    private let contentTypes: [UTType] = [.pdf, .image, .rawImage, .text, .plainText]
+class DocumentPickerController: NSObject, ObservableObject, UIDocumentPickerDelegate {
+    @Published var urls: [URL] = []
+    private let contentTypes: [UTType] = [.pdf, .image, .rawImage, .text, .plainText, .jpeg]
 
     func openDocumentPicker(contentType: [UTType]? = nil) {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: contentType == nil ? contentTypes : contentType!)
@@ -24,17 +25,15 @@ class DocumentPickerViewModel: NSObject, ObservableObject, UIDocumentPickerDeleg
             .compactMap { ($0 as? UIWindowScene)?.keyWindow }
             .last?.rootViewController?.present(documentPicker, animated: true, completion: nil)
 
-        Log.log(message: "Opened file picker.")
+        Log.log(message: "Opened file picker")
     }
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        if let firstURL = urls.first {
-            selectedFileURL = firstURL
-            Log.log(message: "Selected file: \(firstURL.relativePath)")
-        }
+        self.urls = urls
+        Log.log(message: "Selected \(urls.count) files")
     }
 
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        Log.log(message: "Cancelled file picking.")
+        Log.log(message: "Cancelled file picking")
     }
 }

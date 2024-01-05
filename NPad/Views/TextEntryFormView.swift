@@ -10,12 +10,12 @@ import SwiftUI
 struct TextEntryFormView: View {
     var selectedEntry: TextEntry?
 
-    private var viewModel: TextEntryFormViewModel = EntriesController.shared.textEntryFormViewModel
-    @StateObject private var filePickerViewModel = DocumentPickerViewModel()
+    private var textEntryViewModel: TextEntryFormViewModel = EntriesController.shared.textEntryFormViewModel
+    @StateObject private var filePickerController = DocumentPickerController()
     @Environment(\.dismiss) private var dismiss
     @State private var title: String
     @State private var description: String
-    @State private var forceFocus: Bool
+    @State private var attachments: [Attachment]
     @State private var showDeleteConfirmationAlert: Bool = false
 
     private var localTitle: String {
@@ -49,7 +49,8 @@ struct TextEntryFormView: View {
         self.selectedEntry = selectedEntry
         _title = State(initialValue: self.selectedEntry?.entry_title ?? "")
         _description = State(initialValue: self.selectedEntry?.entry_description ?? "")
-        _forceFocus = State(initialValue: false)
+        _attachments = State(initialValue: self.selectedEntry?.attachmentsArray ?? [])
+        Log.log(message: "Initialised text entry form")
     }
 
     var body: some View {
@@ -57,8 +58,7 @@ struct TextEntryFormView: View {
             CustomTitleField(content: $title, placeHolder: "Title")
                 .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
 
-            CustomDescriptionField(description: $description,
-                                   placeholderDescription: "Tap to enter description")
+            CustomDescriptionField(content: $description, placeholderDescription: "Tap to enter description")
 
             Spacer()
         }
@@ -66,9 +66,9 @@ struct TextEntryFormView: View {
         .toolbar {
             CustomMenu(
                 options: selectedEntry == nil ? [
-                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerViewModel.openDocumentPicker() }),
+                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerController.openDocumentPicker() }),
                 ] : [
-                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerViewModel.openDocumentPicker() }),
+                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerController.openDocumentPicker() }),
                     MenuOption(selectionName: .delete, onSelect: { showDeleteConfirmationAlert = true }),
                 ]
             )
@@ -77,14 +77,14 @@ struct TextEntryFormView: View {
                 Button("Done", action: {
                     if isUpdate {
                         if let id = selectedEntry?.id {
-                            viewModel.updateTextEntry(
+                            textEntryViewModel.updateTextEntry(
                                 id: id,
                                 title: title,
                                 description: description
                             )
                         }
                     } else if isAdd {
-                        viewModel.addTextEntry(
+                        textEntryViewModel.addTextEntry(
                             title: title,
                             description: description
                         )
@@ -101,13 +101,43 @@ struct TextEntryFormView: View {
         .alert("Confirm Deletion", isPresented: $showDeleteConfirmationAlert) {
             Button("Yes", role: .destructive, action: {
                 if let entry = selectedEntry {
-                    viewModel.deleteTextEntry(entry: entry)
+                    textEntryViewModel.deleteTextEntry(entry: entry)
                     dismiss()
                 }
             })
             Button("No", role: .cancel, action: {})
         } message: {
             Text("Are you sure you want to delete this entry?")
+        }.onChange(of: $filePickerController.urls.wrappedValue) {
+            let newAttachments = textEntryViewModel.addAttachments(id: selectedEntry?.id, urls: $filePickerController.urls.wrappedValue)
+            attachments.append(contentsOf: newAttachments)
+        }
+
+        if !attachments.isEmpty {
+            ScrollView(.horizontal) {
+                HStack(spacing: 8) {
+                    ForEach(attachments) { attachment in
+                        CustomThumbnailView(attachment: attachment)
+                            .onTapGesture {
+                                if let filePath = attachment.filePath {
+                                    let coordinator = NSFileCoordinator()
+                                    coordinator.coordinate(readingItemAt: filePath, options: .withoutChanges, error: nil) { _ in
+                                        if UIApplication.shared.canOpenURL(filePath) {
+                                            Log.log(message: "Can open file")
+                                            UIApplication.shared.open(filePath, options: [:], completionHandler: { success in
+                                                if !success {
+                                                    Log.log(message: "Failed to open file")
+                                                }
+                                            })
+                                        } else {
+                                            Log.log(message: "Cannot open file: \(filePath)")
+                                        }
+                                    }
+                                }
+                            }
+                    }
+                }
+            }.padding([.horizontal], 10)
         }
     }
 }

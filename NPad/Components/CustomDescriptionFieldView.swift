@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomDescriptionField: View {
-    @Binding var description: String
+    @Binding var content: String
     var placeholderDescription: String
 
     @State private var hidePlaceHolderDescription = false
@@ -17,10 +17,10 @@ struct CustomDescriptionField: View {
     var body: some View {
         ZStack {
             if hidePlaceHolderDescription {
-                TextEditor(text: $description)
+                TextEditor(text: $content)
                     .font(.body)
                     .focused($isFocusedOnDescriptionField)
-
+                    .autocorrectionDisabled()
             } else {
                 Text(placeholderDescription)
                     .foregroundStyle(.gray)
@@ -32,7 +32,7 @@ struct CustomDescriptionField: View {
                     }
             }
         }.onAppear {
-            if !description.isEmpty {
+            if !content.isEmpty {
                 hidePlaceHolderDescription = true
             }
         }

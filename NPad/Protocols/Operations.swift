@@ -16,7 +16,7 @@ enum Operations: EntryProtocol {
         textEntry.id = UUID()
         textEntry.entry_title = title
         textEntry.entry_description = description
-        Log.log(message: "Adding entry \(textEntry.id?.uuidString ?? "").")
+        Log.log(message: "Adding entry \(textEntry.id?.uuidString ?? "")")
         _save()
         return textEntry
     }
@@ -32,7 +32,7 @@ enum Operations: EntryProtocol {
 
     static func deleteEntry(entry: TextEntry) {
         context.delete(entry)
-        Log.log(message: "Deleting entry \(entry.id?.uuidString ?? "") from database.")
+        Log.log(message: "Deleting entry \(entry.id?.uuidString ?? "") from database")
         _save()
     }
 
@@ -41,7 +41,7 @@ enum Operations: EntryProtocol {
         do {
             request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
             let entry = try context.fetch(request).first
-            Log.log(message: "Fetched entry \(id) from database.")
+            Log.log(message: "Fetched entry \(id) from database")
             return entry
         } catch {
             return nil
@@ -52,23 +52,45 @@ enum Operations: EntryProtocol {
         let request: NSFetchRequest<TextEntry> = TextEntry.fetchRequest()
         do {
             let entries = try context.fetch(request)
-            Log.log(message: "Fetched entries from database.")
+            Log.log(message: "Fetched entries from database")
             return entries
         } catch {
             return []
         }
     }
 
+    static func addAttachments(entryId: UUID? = nil, urls: [URL]) -> [Attachment] {
+        guard let textEntry = entryId == nil ? TextEntry(context: context) : fetchEntry(id: entryId!) else {
+            Log.error(message: "Fail to add \(urls.count) attachments to entry \(entryId?.uuidString ?? "")")
+            return []
+        }
+
+        let attachments = urls.map { url in
+            let attachment = Attachment(context: context)
+            attachment.entry_id = entryId
+            attachment.filePath = url.standardizedFileURL
+            attachment.fileName = url.lastPathComponent
+            attachment.fileType = url.pathExtension
+            Log.log(message: "Adding attachment \(attachment.fileName ?? "")")
+            return attachment
+        }
+
+        let attachmentsToAdd = Set(attachments)
+        textEntry.addToAttachments(attachmentsToAdd as NSSet)
+        Log.log(message: "Added \(attachmentsToAdd.count) attachments to entry \(textEntry.id?.uuidString ?? "")")
+        _save()
+
+        return attachments
+    }
+
     static func _save() {
         if context.hasChanges {
             do {
                 try context.save()
-                Log.log(message: "Saved changes in database.")
+                Log.log(message: "Saved changes in database")
             } catch {
                 let nsError = error as NSError
-                let errorMessage = "Unresolved error \(nsError), \(nsError.userInfo)"
-                Log.error(message: "\(errorMessage)")
-                fatalError(errorMessage)
+                Log.error(message: "Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }

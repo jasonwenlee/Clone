@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		96246E122B44E52F00DC34F7 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E102B44E52F00DC34F7 /* Item+CoreDataClass.swift */; };
 		96246E132B44E52F00DC34F7 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */; };
-		96246E172B4524EC00DC34F7 /* DocumentPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E162B4524EC00DC34F7 /* DocumentPickerViewModel.swift */; };
+		96246E172B4524EC00DC34F7 /* DocumentPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E162B4524EC00DC34F7 /* DocumentPickerController.swift */; };
 		962561C32B26B2DC00446F16 /* TextEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962561C22B26B2DC00446F16 /* TextEntryFormView.swift */; };
-		9636A6E52B4398510036B7F5 /* CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6E42B4398510036B7F5 /* CustomMenu.swift */; };
+		9636A6E52B4398510036B7F5 /* CustomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6E42B4398510036B7F5 /* CustomMenuView.swift */; };
 		9636A6EC2B43FF820036B7F5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6EB2B43FF820036B7F5 /* Logger.swift */; };
 		9636A6F12B44DCDB0036B7F5 /* NPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6EF2B44DCDB0036B7F5 /* NPad.xcdatamodeld */; };
-		9636A6FA2B44E04B0036B7F5 /* TextEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6F82B44E04B0036B7F5 /* TextEntry+CoreDataClass.swift */; };
-		9636A6FB2B44E04B0036B7F5 /* TextEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6F92B44E04B0036B7F5 /* TextEntry+CoreDataProperties.swift */; };
 		966A006C2B269A87007B5913 /* NPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A006B2B269A87007B5913 /* NPad.swift */; };
 		966A006E2B269A87007B5913 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A006D2B269A87007B5913 /* Persistence.swift */; };
 		966A00752B269A88007B5913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966A00742B269A88007B5913 /* Assets.xcassets */; };
@@ -25,10 +23,16 @@
 		966A008F2B269A88007B5913 /* NPadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A008E2B269A88007B5913 /* NPadUITestsLaunchTests.swift */; };
 		966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */; };
 		966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */; };
-		967ADBFB2B3E6B71006AB548 /* CustomTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFA2B3E6B71006AB548 /* CustomTitleField.swift */; };
-		967ADBFD2B3E70A8006AB548 /* CustomDescriptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFC2B3E70A8006AB548 /* CustomDescriptionField.swift */; };
+		967ADBFB2B3E6B71006AB548 /* CustomTitleFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFA2B3E6B71006AB548 /* CustomTitleFieldView.swift */; };
+		967ADBFD2B3E70A8006AB548 /* CustomDescriptionFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFC2B3E70A8006AB548 /* CustomDescriptionFieldView.swift */; };
 		968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777DF2B2969F50000FA64 /* EntryProtocol.swift */; };
 		968777EB2B2975A80000FA64 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777EA2B2975A80000FA64 /* Operations.swift */; };
+		96CF96152B477DAA005173A2 /* Attachment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF96132B477DAA005173A2 /* Attachment+CoreDataClass.swift */; };
+		96CF96162B477DAA005173A2 /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF96142B477DAA005173A2 /* Attachment+CoreDataProperties.swift */; };
+		96CF96192B477DBF005173A2 /* TextEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF96172B477DBF005173A2 /* TextEntry+CoreDataClass.swift */; };
+		96CF961A2B477DBF005173A2 /* TextEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF96182B477DBF005173A2 /* TextEntry+CoreDataProperties.swift */; };
+		96CF961E2B478904005173A2 /* CustomThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF961D2B478904005173A2 /* CustomThumbnailView.swift */; };
+		96CF96222B47AFEE005173A2 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF96212B47AFEE005173A2 /* DeferView.swift */; };
 		96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */; };
 		96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EF12B26E01A00148828 /* EntriesController.swift */; };
 /* End PBXBuildFile section */
@@ -53,13 +57,11 @@
 /* Begin PBXFileReference section */
 		96246E102B44E52F00DC34F7 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		96246E162B4524EC00DC34F7 /* DocumentPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerViewModel.swift; sourceTree = "<group>"; };
+		96246E162B4524EC00DC34F7 /* DocumentPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerController.swift; sourceTree = "<group>"; };
 		962561C22B26B2DC00446F16 /* TextEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormView.swift; sourceTree = "<group>"; };
-		9636A6E42B4398510036B7F5 /* CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenu.swift; sourceTree = "<group>"; };
+		9636A6E42B4398510036B7F5 /* CustomMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuView.swift; sourceTree = "<group>"; };
 		9636A6EB2B43FF820036B7F5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9636A6F02B44DCDB0036B7F5 /* NPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NPad.xcdatamodel; sourceTree = "<group>"; };
-		9636A6F82B44E04B0036B7F5 /* TextEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9636A6F92B44E04B0036B7F5 /* TextEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		966A00682B269A87007B5913 /* NPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		966A006B2B269A87007B5913 /* NPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPad.swift; sourceTree = "<group>"; };
 		966A006D2B269A87007B5913 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -73,10 +75,16 @@
 		966A008E2B269A88007B5913 /* NPadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesViewModel.swift; sourceTree = "<group>"; };
 		966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesView.swift; sourceTree = "<group>"; };
-		967ADBFA2B3E6B71006AB548 /* CustomTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleField.swift; sourceTree = "<group>"; };
-		967ADBFC2B3E70A8006AB548 /* CustomDescriptionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDescriptionField.swift; sourceTree = "<group>"; };
+		967ADBFA2B3E6B71006AB548 /* CustomTitleFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleFieldView.swift; sourceTree = "<group>"; };
+		967ADBFC2B3E70A8006AB548 /* CustomDescriptionFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDescriptionFieldView.swift; sourceTree = "<group>"; };
 		968777DF2B2969F50000FA64 /* EntryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryProtocol.swift; sourceTree = "<group>"; };
 		968777EA2B2975A80000FA64 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		96CF96132B477DAA005173A2 /* Attachment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		96CF96142B477DAA005173A2 /* Attachment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		96CF96172B477DBF005173A2 /* TextEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		96CF96182B477DBF005173A2 /* TextEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		96CF961D2B478904005173A2 /* CustomThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThumbnailView.swift; sourceTree = "<group>"; };
+		96CF96212B47AFEE005173A2 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 		96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormViewModel.swift; sourceTree = "<group>"; };
 		96DA9EF12B26E01A00148828 /* EntriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +145,7 @@
 		966A006A2B269A87007B5913 /* NPad */ = {
 			isa = PBXGroup;
 			children = (
+				96CF961F2B47AFA6005173A2 /* Utility */,
 				9636A6EA2B43FF790036B7F5 /* Logger */,
 				967ADBF92B3E6B2E006AB548 /* Components */,
 				968777DD2B2969C00000FA64 /* Protocols */,
@@ -182,10 +191,12 @@
 		966A009B2B269CBA007B5913 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				96CF96172B477DBF005173A2 /* TextEntry+CoreDataClass.swift */,
+				96CF96182B477DBF005173A2 /* TextEntry+CoreDataProperties.swift */,
+				96CF96132B477DAA005173A2 /* Attachment+CoreDataClass.swift */,
+				96CF96142B477DAA005173A2 /* Attachment+CoreDataProperties.swift */,
 				96246E102B44E52F00DC34F7 /* Item+CoreDataClass.swift */,
 				96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */,
-				9636A6F82B44E04B0036B7F5 /* TextEntry+CoreDataClass.swift */,
-				9636A6F92B44E04B0036B7F5 /* TextEntry+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -204,7 +215,6 @@
 			children = (
 				966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */,
 				96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */,
-				96246E162B4524EC00DC34F7 /* DocumentPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,6 +222,7 @@
 		966A009E2B269CE1007B5913 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				96246E162B4524EC00DC34F7 /* DocumentPickerController.swift */,
 				96DA9EF12B26E01A00148828 /* EntriesController.swift */,
 			);
 			path = Controllers;
@@ -220,9 +231,10 @@
 		967ADBF92B3E6B2E006AB548 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				967ADBFA2B3E6B71006AB548 /* CustomTitleField.swift */,
-				967ADBFC2B3E70A8006AB548 /* CustomDescriptionField.swift */,
-				9636A6E42B4398510036B7F5 /* CustomMenu.swift */,
+				967ADBFA2B3E6B71006AB548 /* CustomTitleFieldView.swift */,
+				967ADBFC2B3E70A8006AB548 /* CustomDescriptionFieldView.swift */,
+				9636A6E42B4398510036B7F5 /* CustomMenuView.swift */,
+				96CF961D2B478904005173A2 /* CustomThumbnailView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,6 +246,22 @@
 				968777DF2B2969F50000FA64 /* EntryProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		96CF961F2B47AFA6005173A2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				96CF96202B47AFB9005173A2 /* Views */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		96CF96202B47AFB9005173A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96CF96212B47AFEE005173A2 /* DeferView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,25 +394,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CF96222B47AFEE005173A2 /* DeferView.swift in Sources */,
 				96246E122B44E52F00DC34F7 /* Item+CoreDataClass.swift in Sources */,
-				9636A6FA2B44E04B0036B7F5 /* TextEntry+CoreDataClass.swift in Sources */,
-				967ADBFD2B3E70A8006AB548 /* CustomDescriptionField.swift in Sources */,
-				967ADBFB2B3E6B71006AB548 /* CustomTitleField.swift in Sources */,
+				967ADBFD2B3E70A8006AB548 /* CustomDescriptionFieldView.swift in Sources */,
+				967ADBFB2B3E6B71006AB548 /* CustomTitleFieldView.swift in Sources */,
 				968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */,
 				966A006C2B269A87007B5913 /* NPad.swift in Sources */,
 				96246E132B44E52F00DC34F7 /* Item+CoreDataProperties.swift in Sources */,
 				962561C32B26B2DC00446F16 /* TextEntryFormView.swift in Sources */,
-				9636A6E52B4398510036B7F5 /* CustomMenu.swift in Sources */,
+				9636A6E52B4398510036B7F5 /* CustomMenuView.swift in Sources */,
 				968777EB2B2975A80000FA64 /* Operations.swift in Sources */,
+				96CF96162B477DAA005173A2 /* Attachment+CoreDataProperties.swift in Sources */,
 				9636A6EC2B43FF820036B7F5 /* Logger.swift in Sources */,
 				96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */,
 				966A006E2B269A87007B5913 /* Persistence.swift in Sources */,
-				9636A6FB2B44E04B0036B7F5 /* TextEntry+CoreDataProperties.swift in Sources */,
 				966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */,
+				96CF961E2B478904005173A2 /* CustomThumbnailView.swift in Sources */,
 				96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */,
 				966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */,
+				96CF961A2B477DBF005173A2 /* TextEntry+CoreDataProperties.swift in Sources */,
 				9636A6F12B44DCDB0036B7F5 /* NPad.xcdatamodeld in Sources */,
-				96246E172B4524EC00DC34F7 /* DocumentPickerViewModel.swift in Sources */,
+				96CF96192B477DBF005173A2 /* TextEntry+CoreDataClass.swift in Sources */,
+				96246E172B4524EC00DC34F7 /* DocumentPickerController.swift in Sources */,
+				96CF96152B477DAA005173A2 /* Attachment+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +576,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NPad/Preview Content\"";
+				DEVELOPMENT_TEAM = D6Y5W7MYXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -580,6 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NPad/Preview Content\"";
+				DEVELOPMENT_TEAM = D6Y5W7MYXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

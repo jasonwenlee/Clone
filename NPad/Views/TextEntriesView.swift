@@ -26,13 +26,14 @@ struct TextEntriesView: View {
                        let description = entry.entry_description.wrappedValue
                     {
                         NavigationLink {
-                            TextEntryFormView(selectedEntry: entry.wrappedValue)
+                            DeferView {
+                                TextEntryFormView(selectedEntry: entry.wrappedValue)
+                            }
                         } label: {
                             VStack(alignment: .leading) {
-                                Text(title).font(.headline).foregroundStyle(.black)
+                                Text(title).font(.headline)
                                 Text(description)
                                     .font(.subheadline)
-                                    .foregroundStyle(.gray)
                             }.frame(height: 50)
                         }.listRowSeparator(.hidden)
                     }
@@ -41,7 +42,9 @@ struct TextEntriesView: View {
 
                 // FAB
                 NavigationLink {
-                    TextEntryFormView()
+                    DeferView {
+                        TextEntryFormView()
+                    }
                 } label: {
                     Image(systemName: "plus")
                         .font(.title.weight(.regular))

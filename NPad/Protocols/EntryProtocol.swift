@@ -13,4 +13,5 @@ protocol EntryProtocol {
     static func deleteEntry(entry: TextEntry)
     static func fetchEntry(id: UUID) -> TextEntry?
     static func fetchEntries() -> [TextEntry]
+    static func addAttachments(entryId: UUID?, urls: [URL]) -> [Attachment]
 }

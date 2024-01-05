@@ -23,4 +23,8 @@ class TextEntryFormViewModel: ObservableObject {
         Operations.deleteEntry(entry: entry)
         textEntry = nil
     }
+
+    func addAttachments(id: UUID? = nil, urls: [URL]) -> [Attachment] {
+        return Operations.addAttachments(entryId: id, urls: urls)
+    }
 }
