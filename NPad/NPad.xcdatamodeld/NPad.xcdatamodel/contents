@@ -4,7 +4,7 @@
         <attribute name="attachment_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="entry_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="fileName" optional="YES" attributeType="String"/>
-        <attribute name="filePath" optional="YES" attributeType="URI"/>
+        <attribute name="filePath" optional="YES" attributeType="String"/>
         <attribute name="fileType" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">

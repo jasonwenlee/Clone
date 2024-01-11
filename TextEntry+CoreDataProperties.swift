@@ -18,12 +18,6 @@ public extension TextEntry {
     @NSManaged var entry_title: String?
     @NSManaged var id: UUID?
     @NSManaged var attachments: NSSet?
-    var attachmentsArray: [Attachment] {
-        guard let attachmentsSet = attachments else {
-            return []
-        }
-        return Array(attachmentsSet) as? [Attachment] ?? []
-    }
 }
 
 // MARK: Generated accessors for attachments

@@ -11,6 +11,7 @@
 		96246E132B44E52F00DC34F7 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */; };
 		96246E172B4524EC00DC34F7 /* DocumentPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96246E162B4524EC00DC34F7 /* DocumentPickerController.swift */; };
 		962561C32B26B2DC00446F16 /* TextEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962561C22B26B2DC00446F16 /* TextEntryFormView.swift */; };
+		962E1E0F2B4B7DB100D0A813 /* UrlUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E1E0E2B4B7DB100D0A813 /* UrlUtility.swift */; };
 		9636A6E52B4398510036B7F5 /* CustomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6E42B4398510036B7F5 /* CustomMenuView.swift */; };
 		9636A6EC2B43FF820036B7F5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6EB2B43FF820036B7F5 /* Logger.swift */; };
 		9636A6F12B44DCDB0036B7F5 /* NPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9636A6EF2B44DCDB0036B7F5 /* NPad.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 		966A008F2B269A88007B5913 /* NPadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A008E2B269A88007B5913 /* NPadUITestsLaunchTests.swift */; };
 		966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */; };
 		966A00AE2B26A9AB007B5913 /* TextEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */; };
+		96739C972B4CF44000486AB9 /* ColourUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739C962B4CF44000486AB9 /* ColourUtility.swift */; };
 		967ADBFB2B3E6B71006AB548 /* CustomTitleFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFA2B3E6B71006AB548 /* CustomTitleFieldView.swift */; };
 		967ADBFD2B3E70A8006AB548 /* CustomDescriptionFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967ADBFC2B3E70A8006AB548 /* CustomDescriptionFieldView.swift */; };
 		968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968777DF2B2969F50000FA64 /* EntryProtocol.swift */; };
@@ -35,6 +37,7 @@
 		96CF96222B47AFEE005173A2 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF96212B47AFEE005173A2 /* DeferView.swift */; };
 		96DA9EF02B26C60600148828 /* TextEntryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */; };
 		96DA9EF22B26E01A00148828 /* EntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA9EF12B26E01A00148828 /* EntriesController.swift */; };
+		96FBD2F32B4CDA14008FCED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FBD2F22B4CDA14008FCED3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,7 @@
 		96246E112B44E52F00DC34F7 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		96246E162B4524EC00DC34F7 /* DocumentPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerController.swift; sourceTree = "<group>"; };
 		962561C22B26B2DC00446F16 /* TextEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormView.swift; sourceTree = "<group>"; };
+		962E1E0E2B4B7DB100D0A813 /* UrlUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtility.swift; sourceTree = "<group>"; };
 		9636A6E42B4398510036B7F5 /* CustomMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuView.swift; sourceTree = "<group>"; };
 		9636A6EB2B43FF820036B7F5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9636A6F02B44DCDB0036B7F5 /* NPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NPad.xcdatamodel; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 		966A008E2B269A88007B5913 /* NPadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		966A00A92B26A14F007B5913 /* TextEntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesViewModel.swift; sourceTree = "<group>"; };
 		966A00AD2B26A9AB007B5913 /* TextEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntriesView.swift; sourceTree = "<group>"; };
+		96739C962B4CF44000486AB9 /* ColourUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourUtility.swift; sourceTree = "<group>"; };
 		967ADBFA2B3E6B71006AB548 /* CustomTitleFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleFieldView.swift; sourceTree = "<group>"; };
 		967ADBFC2B3E70A8006AB548 /* CustomDescriptionFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDescriptionFieldView.swift; sourceTree = "<group>"; };
 		968777DF2B2969F50000FA64 /* EntryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryProtocol.swift; sourceTree = "<group>"; };
@@ -87,6 +92,8 @@
 		96CF96212B47AFEE005173A2 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 		96DA9EEF2B26C60600148828 /* TextEntryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryFormViewModel.swift; sourceTree = "<group>"; };
 		96DA9EF12B26E01A00148828 /* EntriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesController.swift; sourceTree = "<group>"; };
+		96FBD2F22B4CDA14008FCED3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96FBD2F42B4CDF1B008FCED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +152,7 @@
 		966A006A2B269A87007B5913 /* NPad */ = {
 			isa = PBXGroup;
 			children = (
+				96FBD2F42B4CDF1B008FCED3 /* Info.plist */,
 				96CF961F2B47AFA6005173A2 /* Utility */,
 				9636A6EA2B43FF790036B7F5 /* Logger */,
 				967ADBF92B3E6B2E006AB548 /* Components */,
@@ -159,6 +167,7 @@
 				966A00762B269A88007B5913 /* NPad.entitlements */,
 				9636A6EF2B44DCDB0036B7F5 /* NPad.xcdatamodeld */,
 				966A00772B269A88007B5913 /* Preview Content */,
+				96FBD2F22B4CDA14008FCED3 /* LaunchScreen.storyboard */,
 			);
 			path = NPad;
 			sourceTree = "<group>";
@@ -252,6 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				96CF96202B47AFB9005173A2 /* Views */,
+				962E1E0E2B4B7DB100D0A813 /* UrlUtility.swift */,
+				96739C962B4CF44000486AB9 /* ColourUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -368,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FBD2F32B4CDA14008FCED3 /* LaunchScreen.storyboard in Resources */,
 				966A00792B269A88007B5913 /* Preview Assets.xcassets in Resources */,
 				966A00752B269A88007B5913 /* Assets.xcassets in Resources */,
 			);
@@ -396,6 +408,7 @@
 			files = (
 				96CF96222B47AFEE005173A2 /* DeferView.swift in Sources */,
 				96246E122B44E52F00DC34F7 /* Item+CoreDataClass.swift in Sources */,
+				962E1E0F2B4B7DB100D0A813 /* UrlUtility.swift in Sources */,
 				967ADBFD2B3E70A8006AB548 /* CustomDescriptionFieldView.swift in Sources */,
 				967ADBFB2B3E6B71006AB548 /* CustomTitleFieldView.swift in Sources */,
 				968777E02B2969F50000FA64 /* EntryProtocol.swift in Sources */,
@@ -414,6 +427,7 @@
 				966A00AA2B26A14F007B5913 /* TextEntriesViewModel.swift in Sources */,
 				96CF961A2B477DBF005173A2 /* TextEntry+CoreDataProperties.swift in Sources */,
 				9636A6F12B44DCDB0036B7F5 /* NPad.xcdatamodeld in Sources */,
+				96739C972B4CF44000486AB9 /* ColourUtility.swift in Sources */,
 				96CF96192B477DBF005173A2 /* TextEntry+CoreDataClass.swift in Sources */,
 				96246E172B4524EC00DC34F7 /* DocumentPickerController.swift in Sources */,
 				96CF96152B477DAA005173A2 /* Attachment+CoreDataClass.swift in Sources */,
@@ -570,8 +584,10 @@
 		966A00932B269A88007B5913 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = NPad/NPad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -579,12 +595,18 @@
 				DEVELOPMENT_TEAM = D6Y5W7MYXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NPad/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -596,8 +618,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jason.NPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,8 +630,10 @@
 		966A00942B269A88007B5913 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = NPad/NPad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -616,12 +641,18 @@
 				DEVELOPMENT_TEAM = D6Y5W7MYXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NPad/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -633,8 +664,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jason.NPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

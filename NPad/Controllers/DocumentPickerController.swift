@@ -12,10 +12,11 @@ import UniformTypeIdentifiers
 
 class DocumentPickerController: NSObject, ObservableObject, UIDocumentPickerDelegate {
     @Published var urls: [URL] = []
-    private let contentTypes: [UTType] = [.pdf, .image, .rawImage, .text, .plainText, .jpeg]
+    // TODO: Add more content types.
+    private let contentTypes: [UTType] = [.pdf]
 
     func openDocumentPicker(contentType: [UTType]? = nil) {
-        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: contentType == nil ? contentTypes : contentType!)
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: contentType == nil ? contentTypes : contentType!, asCopy: true)
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = true
 

@@ -6,10 +6,10 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(Attachment)
 public class Attachment: NSManagedObject {
-
+    var tofilePathURL: URL? { return filePath?.convertToURL() }
 }

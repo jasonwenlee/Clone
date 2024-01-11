@@ -4,13 +4,15 @@
 //
 //  Created by Jason on 5/1/2024.
 //
-
+import QuickLook
 import QuickLookThumbnailing
 import SwiftUI
 
 struct CustomThumbnailView: View {
     @State private var thumbnail: UIImage?
-    let attachment: Attachment
+    @State private var selectedURL: URL?
+
+    let attachmentURL: URL
     let thumbnailScale: CGSize? = CGSize(width: 100, height: 100)
 
     var body: some View {
@@ -22,31 +24,25 @@ struct CustomThumbnailView: View {
             .cornerRadius(8)
             .padding(.horizontal, 4)
             .onAppear {
-                generateThumbnail(for: attachment) { generatedThumbnail in
+                generateThumbnail(for: attachmentURL) { generatedThumbnail in
                     thumbnail = generatedThumbnail
-                    Log.log(message: "Use generated thumbnail")
                 }
-            }
+            }.onTapGesture {
+                selectedURL = attachmentURL
+            }.quickLookPreview($selectedURL)
     }
 
-    private func generateThumbnail(for attachment: Attachment, completion: @escaping (UIImage?) -> Void) {
-        guard let fileURL = attachment.filePath else {
-            completion(nil)
-            return
-        }
-
+    private func generateThumbnail(for url: URL, completion: @escaping (UIImage?) -> Void) {
         let scale = UIScreen.main.scale
 
-        let request = QLThumbnailGenerator.Request(fileAt: fileURL, size: thumbnailScale!, scale: scale, representationTypes: .all)
+        let request = QLThumbnailGenerator.Request(fileAt: url, size: thumbnailScale!, scale: scale, representationTypes: .all)
         let generator = QLThumbnailGenerator.shared
 
         generator.generateBestRepresentation(for: request) { thumbnail, error in
             if let t = thumbnail {
                 DispatchQueue.main.async {
-                    Log.log(message: "Thumbnail for \(fileURL.relativePath) generated")
                     completion(t.uiImage)
                 }
-
             } else {
                 Log.error(message: "Error generating thumbnail: \(error?.localizedDescription ?? "Unknown error")")
                 completion(nil)

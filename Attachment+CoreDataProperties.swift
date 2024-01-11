@@ -15,7 +15,7 @@ public extension Attachment {
     }
 
     @NSManaged var fileName: String?
-    @NSManaged var filePath: URL?
+    @NSManaged var filePath: String?
     @NSManaged var fileType: String?
     @NSManaged var entry_id: UUID?
     @NSManaged var attachment_id: UUID?

@@ -15,13 +15,13 @@ class TextEntriesViewModel: ObservableObject {
     init() {
         let entries = Operations.fetchEntries()
         textEntries.append(contentsOf: entries)
-        Log.log(message: "Initialised TextEntriesViewModel")
+        Log.log(message: "Initialised TextEntriesViewModel with \(textEntries.count) entries")
     }
 
     // Handle changes in TextEntryFormViewModel
     func handleTextEntryChange(_ newEntry: TextEntry?) {
         if let entry = newEntry {
-            if let index = textEntries.firstIndex(of: entry) {
+            if let index = textEntries.firstIndex(where: { $0.id == entry.id }) {
                 // Replace the entry.
                 textEntries[index] = entry
                 Log.log(message: "Updated existing entry in entries list")

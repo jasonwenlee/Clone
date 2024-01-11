@@ -15,7 +15,8 @@ struct TextEntryFormView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var title: String
     @State private var description: String
-    @State private var attachments: [Attachment]
+    @State private var existingAttachmentURLs: [URL]
+    @State private var newAttachmentURLs: [URL]
     @State private var showDeleteConfirmationAlert: Bool = false
 
     private var localTitle: String {
@@ -24,6 +25,13 @@ struct TextEntryFormView: View {
 
     private var localDescription: String {
         return description.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private var allAttachmentURLs: [URL] {
+        var all: [URL] = []
+        all.append(contentsOf: existingAttachmentURLs)
+        all.append(contentsOf: newAttachmentURLs)
+        return all
     }
 
     private var isUpdate: Bool {
@@ -49,95 +57,88 @@ struct TextEntryFormView: View {
         self.selectedEntry = selectedEntry
         _title = State(initialValue: self.selectedEntry?.entry_title ?? "")
         _description = State(initialValue: self.selectedEntry?.entry_description ?? "")
-        _attachments = State(initialValue: self.selectedEntry?.attachmentsArray ?? [])
+        _existingAttachmentURLs = State(initialValue: self.selectedEntry?.attachmentURLs ?? [])
+        _newAttachmentURLs = State(initialValue: [])
         Log.log(message: "Initialised text entry form")
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
-            CustomTitleField(content: $title, placeHolder: "Title")
-                .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
+        Color.backgroundColour.ignoresSafeArea().overlay {
+            VStack(alignment: .leading) {
+                CustomTitleField(content: $title, placeHolder: "Title")
+                    .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
 
-            CustomDescriptionField(content: $description, placeholderDescription: "Tap to enter description")
+                CustomDescriptionField(content: $description, placeholderDescription: "Tap to enter description")
 
-            Spacer()
-        }
-        .padding()
-        .toolbar {
-            CustomMenu(
-                options: selectedEntry == nil ? [
-                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerController.openDocumentPicker() }),
-                ] : [
-                    MenuOption(selectionName: .addAttachment, onSelect: { filePickerController.openDocumentPicker() }),
-                    MenuOption(selectionName: .delete, onSelect: { showDeleteConfirmationAlert = true }),
-                ]
-            )
+                Spacer()
 
-            if isUpdate || isAdd {
-                Button("Done", action: {
-                    if isUpdate {
-                        if let id = selectedEntry?.id {
-                            textEntryViewModel.updateTextEntry(
-                                id: id,
+                if !allAttachmentURLs.isEmpty {
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 8) {
+                            ForEach(allAttachmentURLs.indices, id: \.self) { index in
+                                CustomThumbnailView(attachmentURL: allAttachmentURLs[index])
+                            }
+                        }
+                    }.padding([.horizontal], 5)
+                }
+            }
+            .padding()
+            .toolbar {
+                CustomMenu(
+                    options: selectedEntry == nil ? [
+                        MenuOption(selectionName: .addAttachment, onSelect: { filePickerController.openDocumentPicker() }),
+                    ] : [
+                        MenuOption(selectionName: .addAttachment, onSelect: { filePickerController.openDocumentPicker() }),
+                        MenuOption(selectionName: .delete, onSelect: { showDeleteConfirmationAlert = true }),
+                    ]
+                )
+
+                if isUpdate || isAdd || !newAttachmentURLs.isEmpty {
+                    Button("Done", action: {
+                        if isUpdate {
+                            Log.log(message: "Updating entry")
+                            if let id = selectedEntry?.id {
+                                textEntryViewModel.updateTextEntry(
+                                    id: id,
+                                    title: title,
+                                    description: description
+                                )
+                            }
+                        } else if isAdd {
+                            Log.log(message: "Adding new entry")
+                            textEntryViewModel.addTextEntry(
                                 title: title,
                                 description: description
                             )
+
+                            title = ""
+                            description = ""
                         }
-                    } else if isAdd {
-                        textEntryViewModel.addTextEntry(
-                            title: title,
-                            description: description
-                        )
-                        title = ""
-                        description = ""
-                    }
 
-                    dismiss()
-                })
+                        if !newAttachmentURLs.isEmpty {
+                            Log.log(message: "Adding new attachments for current entry")
+                            textEntryViewModel.addAttachments(id: selectedEntry?.id ?? nil, urls: newAttachmentURLs)
+                        }
+
+                        dismiss()
+                    })
+                }
             }
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(selectedEntry != nil ? "Edit Entry" : "New Entry")
-        .alert("Confirm Deletion", isPresented: $showDeleteConfirmationAlert) {
-            Button("Yes", role: .destructive, action: {
-                if let entry = selectedEntry {
-                    textEntryViewModel.deleteTextEntry(entry: entry)
-                    dismiss()
-                }
-            })
-            Button("No", role: .cancel, action: {})
-        } message: {
-            Text("Are you sure you want to delete this entry?")
-        }.onChange(of: $filePickerController.urls.wrappedValue) {
-            let newAttachments = textEntryViewModel.addAttachments(id: selectedEntry?.id, urls: $filePickerController.urls.wrappedValue)
-            attachments.append(contentsOf: newAttachments)
-        }
-
-        if !attachments.isEmpty {
-            ScrollView(.horizontal) {
-                HStack(spacing: 8) {
-                    ForEach(attachments) { attachment in
-                        CustomThumbnailView(attachment: attachment)
-                            .onTapGesture {
-                                if let filePath = attachment.filePath {
-                                    let coordinator = NSFileCoordinator()
-                                    coordinator.coordinate(readingItemAt: filePath, options: .withoutChanges, error: nil) { _ in
-                                        if UIApplication.shared.canOpenURL(filePath) {
-                                            Log.log(message: "Can open file")
-                                            UIApplication.shared.open(filePath, options: [:], completionHandler: { success in
-                                                if !success {
-                                                    Log.log(message: "Failed to open file")
-                                                }
-                                            })
-                                        } else {
-                                            Log.log(message: "Cannot open file: \(filePath)")
-                                        }
-                                    }
-                                }
-                            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(selectedEntry != nil ? "Edit Entry" : "New Entry")
+            .alert("Confirm Deletion", isPresented: $showDeleteConfirmationAlert) {
+                Button("Yes", role: .destructive, action: {
+                    if let entry = selectedEntry {
+                        textEntryViewModel.deleteTextEntry(entry: entry)
+                        dismiss()
                     }
-                }
-            }.padding([.horizontal], 10)
+                })
+                Button("No", role: .cancel, action: {})
+            } message: {
+                Text("Are you sure you want to delete this entry?")
+            }.onChange(of: $filePickerController.urls.wrappedValue) {
+                newAttachmentURLs.append(contentsOf: filePickerController.urls)
+            }
         }
     }
 }

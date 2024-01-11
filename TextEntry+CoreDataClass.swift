@@ -6,10 +6,18 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(TextEntry)
 public class TextEntry: NSManagedObject {
+    var attachmentURLs: [URL] {
+        guard let attachmentsSet = attachments else {
+            return []
+        }
 
+        let attachments = Array(attachmentsSet) as? [Attachment] ?? []
+
+        return attachments.compactMap { e in e.tofilePathURL }
+    }
 }

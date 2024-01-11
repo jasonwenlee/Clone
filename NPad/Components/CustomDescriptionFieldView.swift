@@ -21,6 +21,8 @@ struct CustomDescriptionField: View {
                     .font(.body)
                     .focused($isFocusedOnDescriptionField)
                     .autocorrectionDisabled()
+                    .scrollContentBackground(.hidden)
+                    .background(Color.backgroundColour.ignoresSafeArea())
             } else {
                 Text(placeholderDescription)
                     .foregroundStyle(.gray)

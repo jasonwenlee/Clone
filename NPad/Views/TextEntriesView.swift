@@ -31,14 +31,42 @@ struct TextEntriesView: View {
                             }
                         } label: {
                             VStack(alignment: .leading) {
-                                Text(title).font(.headline)
-                                Text(description)
+                                title.isEmpty ? Text("No title")
+                                    .font(.headline)
+                                    .italic()
+                                    .foregroundStyle(.gray) :
+                                    Text(title).font(.headline)
+                                description.isEmpty ? Text("No description")
                                     .font(.subheadline)
+                                    .italic()
+                                    .foregroundStyle(.gray) :
+                                    Text(description).font(.subheadline)
                             }.frame(height: 50)
                         }.listRowSeparator(.hidden)
+                    } else {
+                        if !entry.wrappedValue.attachmentURLs.isEmpty {
+                            NavigationLink {
+                                DeferView {
+                                    TextEntryFormView(selectedEntry: entry.wrappedValue)
+                                }
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Text("No title")
+                                        .font(.headline)
+                                        .italic()
+                                        .foregroundStyle(.gray)
+                                    Text("No description")
+                                        .font(.subheadline)
+                                        .italic()
+                                        .foregroundStyle(.gray)
+                                }.frame(height: 50)
+                            }.listRowSeparator(.hidden)
+                        }
                     }
                 }
+                .scrollContentBackground(.hidden)
                 .navigationTitle("Text Entries")
+                .background(Color.backgroundColour.ignoresSafeArea())
 
                 // FAB
                 NavigationLink {
@@ -49,7 +77,7 @@ struct TextEntriesView: View {
                     Image(systemName: "plus")
                         .font(.title.weight(.regular))
                         .padding()
-                        .background(.blue)
+                        .background(Color.primaryActionColour)
                         .foregroundColor(.white)
                         .clipShape(.circle)
                         .shadow(radius: 4, x: 0, y: 4)

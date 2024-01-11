@@ -24,7 +24,7 @@ class TextEntryFormViewModel: ObservableObject {
         textEntry = nil
     }
 
-    func addAttachments(id: UUID? = nil, urls: [URL]) -> [Attachment] {
-        return Operations.addAttachments(entryId: id, urls: urls)
+    func addAttachments(id: UUID? = nil, urls: [URL]) {
+        textEntry = Operations.addAttachments(entryId: id, urls: urls)
     }
 }
